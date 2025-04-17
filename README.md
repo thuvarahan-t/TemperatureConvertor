@@ -11,7 +11,7 @@ This repository allows you to compare how each approach addresses the same probl
 
 ## 🚀 Live Demo
 
-👉 [Check it out here](#) *(Add your GitHub Pages or hosted link)*
+👉 [Check it out here](#) 
 
 ---
 
