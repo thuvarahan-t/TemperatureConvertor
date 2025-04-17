@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quantum Temp Converter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .glass-card {
+      backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 25px;
+      padding: 3rem 2rem;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+      max-width: 400px;
+      width: 90%;
+      animation: floaty 6s ease-in-out infinite;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #00eaff;
+      text-shadow: 0 0 10px #00eaff;
+    }
+
+    label {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: block;
+      color: #f0f0f0;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-radius: 15px;
+      border: 2px solid #00f2ff;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      font-size: 1rem;
+      transition: 0.3s ease;
+      box-shadow: inset 0 0 8px #00f2ff30;
+    }
+
+    input[type="number"]:focus {
+      outline: none;
+      border-color: #0ff;
+      box-shadow: 0 0 10px #0ff;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    input[readonly] {
+      opacity: 0.9;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.9rem;
+      background: linear-gradient(90deg, #00f2ff, #00ffc3);
+      border: none;
+      border-radius: 20px;
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.4s ease;
+      box-shadow: 0 0 15px #00ffc3a8;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #00ffc3, #00f2ff);
+      box-shadow: 0 0 25px #00ffc3;
+      transform: scale(1.03);
+    }
+
+    .formula {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #d1faff;
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    .glow-bar {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, #00ffc3, #00f2ff);
+      animation: moveBar 3s linear infinite;
+    }
+
+    @keyframes moveBar {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow-bar"></div>
+  <div class="glass-card">
+    <h1>⚛️ Quantum Converter</h1>
+    <form onsubmit="event.preventDefault(); confun();">
+      <label for="cel">Celsius</label>
+      <input type="number" id="cel" placeholder="Enter °C">
+
+      <button type="submit">⚡ Convert</button>
+
+      <label for="fur" style="margin-top: 1rem;">Fahrenheit</label>
+      <input type="number" id="fur" readonly placeholder="°F Output">
+    </form>
+    <p class="formula">
+      Formula: (<strong>C</strong> × 9/5) + 32
+    </p>
+  </div>
+
+  <script>
+    function confun() {
+      const celInput = document.getElementById("cel");
+      const celsius = celInput.value.trim();
+
+      if (celsius === "") {
+        alert("🌡️ Please enter a value in Celsius.");
+        celInput.focus();
+      } else {
+        const fahrenheit = (parseFloat(celsius) * 9 / 5) + 32;
+        document.getElementById("fur").value = fahrenheit.toFixed(2);
+      }
+    }
+  </script>
+</body>
+</html>

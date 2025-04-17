@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Converter</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>   Temprature    </legend>
+            <label for ="cel">Celsius</label><br>
+            <input type ="number" id ="cel"> <br>
+            <input type ="button" id ="b1" value = "convert" onclick="confun()"> <br>
+            <input type ="number" id ="fur" readonly><br>
+            <label for ="fur">farhernheit</label>
+
+            <p>To convert celsius to fahrenheit yourself, use this formula replacing the `C` with your temperature in celsius:
+                (C × 9/5) + 32<p>
+        </fieldset>
+    </form>
+    <script>
+        function confun(){
+            var cel=document.getElementById("cel").value;
+            var cel1=document.getElementById("cel");
+
+            if(cel==""){
+                alert("enter some value");
+                cel1.focus();
+            }
+            else{
+                var f = (cel*9/5)+32;
+                document.getElementById("fur").value=f;
+            }
+        }
+    </script>
+</body>
+</html>
