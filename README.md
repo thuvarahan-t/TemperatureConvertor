@@ -75,7 +75,7 @@ This repository allows you to compare how each approach addresses the same probl
 
 ```bash
 📁 converter-comparison/
-├── normal-version.html       
-├── chatgpt-version.html     
-├── github-copilot-version.html 
+├── MyCode.html       
+├── FromChatgpt.html
+├── FromGithubAi.html
 ├── README.md               
