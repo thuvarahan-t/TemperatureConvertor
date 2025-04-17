@@ -74,7 +74,7 @@ This repository allows you to compare how each approach addresses the same probl
 ## 📂 Files in the Repo
 
 ```bash
-📁 converter-comparison/
+📁 TemperatureConvertor/
 ├── MyCode.html       
 ├── FromChatgpt.html
 ├── FromGithubAi.html
